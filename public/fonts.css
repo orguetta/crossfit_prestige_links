@@ -22,7 +22,14 @@
     src: url("/fonts/fa-solid-900.woff2") format("woff2");
 }
 
-
+/* Anton English Font */
+@font-face {
+    font-family: "Anton";
+    src: url("/fonts/Anton-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
 
 
 
