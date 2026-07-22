@@ -1,38 +1,67 @@
-# lazylink
+# CrossFit Prestige Links 🏋️‍♂️✨
 
-A link shortener and linktree alternative designed to run on cloudflare pages.
+A custom link-in-bio (Linktree alternative) and link shortener tailored for **CrossFit Prestige**. Built on top of **Astro** for maximum speed and performance, and designed for seamless deployment to **Cloudflare Pages**.
 
-## Features
+---
 
-Here are some of the current and planned features of lazylink:
+## 🚀 Key Features
 
-- [x] Link shortening
-- [x] Linktree alternative
-- [x] fontawesome icons
-- [ ] qr code generation for links
+- **Ultra-Fast Performance**: Built with Astro to ensure instant loading times and top-tier core web vitals.
+- **Rich Link Tree**: Supports FontAwesome icons, direct WhatsApp chat integration, mobile app download links, and more.
+- **Fully Responsive**: Optimized for perfect presentation on mobile, tablet, and desktop devices.
+- **Style Customization**: Centrally managed styling and themes using a dedicated SCSS stylesheet.
 
-## Usage
+---
 
-1. Fork this repository
-2. Edit the config file in [`./config/config.ts`](https://github.com/ash-entwisle/lazylink/blob/main/config/config.ts)
-3. Create a cloudflare account (if you don't already have one)
-4. Create a cloudflare pages project (under the workers and pages tab)
-5. Connect your forked repository to your cloudflare pages project (youll need to connect your github account to cloudflare)
-6. Bobs yr uncle, you're done!
-7. (Optional) Add a CNAME record to your domain pointing to your cloudflare pages project
+## ⚙️ Configuration
 
-## Contributing
+To customize the links and content for your brand:
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. 
+1. **Content & Links**:  
+   Open and edit the config/config.ts file to update the page title, subtitle, about description, link items, and social media profiles.
 
-## License
+2. **Styling & Colors**:  
+   Modify the config/styles.scss file to customize fonts, primary colors, backgrounds, and themes.
 
-This project, like most of my other project is licenced under the [AGPL-3.0](https://choosealicense.com/licenses/agpl-3.0/) license. 
-This means that you are free to use, modify and distribute this software as long as you make your changes available under the same license.
+---
 
-## Planned Features
+## 💻 Local Development
 
-- [ ] qr code generation for links
-- [ ] make css less of a mess
-- [ ] make a better guide for setting up
-- [ ] docker container for ppl who want to self host
+Ensure you have a modern version of Node.js installed.
+
+1. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Start the Local Development Server**:
+   ```bash
+   npm run dev
+   ```
+   Open your browser to: `http://localhost:4321`
+
+3. **Verify and Build for Production**:
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 🌐 Deployment
+
+This project is configured for effortless deployment with **Cloudflare Pages**:
+
+1. Connect your GitHub repository to your Cloudflare Pages dashboard.
+2. Configure the following build settings:
+   - **Framework Preset**: `Astro`
+   - **Build Command**: `npm run build`
+   - **Build Output Directory**: `dist`
+3. Deploy and optionally assign your custom domain.
+
+---
+
+## 📄 License
+
+This project is licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**.
+
+Under the terms of the AGPL-3.0 license, if you host modified versions of this software on a public network server to serve users, you must make the complete source code of your modified version available to those users under the same license.

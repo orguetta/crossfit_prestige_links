@@ -1,20 +1,20 @@
 ---
-import { Config } from "../../config/config"
+import { Config } from "../../config/config";
 import Card from "../components/Card.astro";
-import '../../config/styles.scss'
+import '../../config/styles.scss';
 
-const kw = Config.about.split(" ");
+const keywords = Config.about.split(" ").join(", ");
 ---
 
-<html lang="en">
+<html lang="he" dir="rtl">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content={ Config.about }>
-        <meta name="keywords" content={ Config.about }>
+        <meta name="keywords" content={ keywords }>
 		<meta name="robots" content="index, follow">
-		<meta name="theme-color" content="#282c34"/>
+		<meta name="theme-color" content="#272521"/>
 		<meta name="author" content={ Config.title }>
 		<meta name="generator" content={ Astro.generator } />
 
@@ -30,32 +30,78 @@ const kw = Config.about.split(" ");
 		<meta name="twitter:image" content="/favicon.ico">
 		<meta name="twitter:card" content="summary_large_image">
 
-        <link rel="manifest" href="manifest.json">
+        <link rel="manifest" href="/manifest.json">
         <link rel="apple-touch-icon" href="/favicon.ico">
         <link rel="sitemap" href="/sitemap-index.xml">  
-        <link rel="preconnect" href="/" crossorigin>
-        <link href="/fonts.css" rel="stylesheet">
-		<title>{ Config.title }</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+		<title>{ Config.title } | { Config.subtitle }</title>
 	</head>
 	<body>
 		<header>
-			<div class="left">
-				<img src={ Config.image ?? "/favicon.ico" } alt="Astro" />
+			<div class="logo-container">
+                <!-- Check for logo in different common formats. On error, fallback to beautiful CP text avatar -->
+                <img 
+                    id="logo-image" 
+                    src="/logo.png" 
+                    alt="CrossFit Prestige" 
+                />
+                <script is:inline>
+                    (function() {
+                        const img = document.getElementById('logo-image');
+                        if (img) {
+                            img.addEventListener('error', function() {
+                                if (img.src.indexOf('/logo.png') !== -1) {
+                                    img.src = '/logo.svg';
+                                } else {
+                                    img.style.display = 'none';
+                                    const fallback = document.getElementById('logo-fallback');
+                                    if (fallback) {
+                                        fallback.style.display = 'flex';
+                                    }
+                                }
+                            });
+                        }
+                    })();
+                </script>
+                <div id="logo-fallback" class="avatar-fallback" style="display: none;">
+                    CP
+                </div>
 			</div>
-			<div class="right">
-				<h1>{Config.title} { (Config.subtitle) ? <em>{ Config.subtitle }</em> : "" }</h1>
-				<p>{ Config.about }</p>
-			</div>
+			<h1>{ Config.title }</h1>
+            { Config.subtitle && <p class="subtitle">{ Config.subtitle }</p> }
+            <p class="about">{ Config.about }</p>
 		</header>
 		<main>
 			<div class="links">
-				{ // remove all hidden links, then map the rest to cards
+				{
 					Config.links.filter(link => !link.hide).map(link => <Card link={ link } />)
 				}
 			</div>
+            
+            {Config.socials && (
+                <div class="social-bar">
+                    {Config.socials.instagram && (
+                        <a href={Config.socials.instagram} target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                            <i style="font-family: 'Font Awesome 6 Brands';">&#xf16d;</i>
+                        </a>
+                    )}
+                    {Config.socials.facebookPage && (
+                        <a href={Config.socials.facebookPage} target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook Page">
+                            <i style="font-family: 'Font Awesome 6 Brands';">&#xf39e;</i>
+                        </a>
+                    )}
+                    {Config.socials.facebookGroup && (
+                        <a href={Config.socials.facebookGroup} target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook Group">
+                            <i style="font-family: 'Font Awesome 6 Free'; font-weight: 900;">&#xf0c0;</i>
+                        </a>
+                    )}
+                </div>
+            )}
 		</main>
 		<footer>
-			<h5>(Made with <a href="https://demo.lazylink.dev/github">LazyLink</a>)</h5>
+			<h5>Made with ❤️ by <a href="https://or.guetta.tech">Or Guetta</a></h5>
 		</footer>
 	</body>
 </html>

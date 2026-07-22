@@ -43,6 +43,12 @@ export interface LLLink {
     hide?: boolean;
 }
 
+export interface LLSocials {
+    instagram?: string;
+    facebookPage?: string;
+    facebookGroup?: string;
+}
+
 /**
  * Represents the configuration for LazyLink.
  */
@@ -67,4 +73,8 @@ export interface LLConfig {
      * The links to be displayed.
      */
     links : LLLink[];
+    /**
+     * Optional social media links.
+     */
+    socials?: LLSocials;
 }

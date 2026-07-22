@@ -1,7 +1,7 @@
 {
-  "name": "lazylink",
+  "name": "prestige-links",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -10,13 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.4.1",
-    "@astrojs/cloudflare": "^8.1.0",
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/cloudflare": "^14.1.4",
     "@astrojs/partytown": "^2.0.3",
-    "@astrojs/prefetch": "^0.4.1",
     "@astrojs/sitemap": "^3.0.4",
-    "astro": "^4.1.2",
-    "typescript": "^5.3.3"
+    "astro": "^7.1.3",
+    "typescript": "^6.0.0"
   },
   "devDependencies": {
     "sass": "^1.69.7"

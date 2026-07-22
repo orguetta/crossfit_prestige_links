@@ -9,4 +9,4 @@ const { icon } = Astro.props;
 const weight = icon.bold ? '900' : '400';
 ---
 
-<i style={`font-weight: ${weight}`}>&#x{icon.code};</i>
+<i style={`font-weight: ${weight}`}>{String.fromCodePoint(parseInt(icon.code, 16))}</i>
