@@ -15,9 +15,10 @@ The following versions of this project are currently supported with security upd
 
 **Please do not open a public GitHub issue for security vulnerabilities.**
 
-If you discover a potential security vulnerability, please report it by sending an email or contacting the repository owner/maintainer directly. 
+If you discover a potential security vulnerability, please report it by sending an email or contacting the repository owner/maintainer directly.
 
 When reporting, please include:
+
 - A detailed description of the vulnerability.
 - Steps to reproduce the issue (including proof-of-concept scripts or screenshots if applicable).
 - Any potential impact on users or the system.
@@ -25,6 +26,7 @@ When reporting, please include:
 ## Our Response Process
 
 Once a vulnerability report is received:
+
 1. **Acknowledgment**: We will acknowledge receipt of your report within 48 hours.
 2. **Investigation**: We will investigate the issue and determine its impact and severity.
 3. **Fix**: We will work on a patch or mitigation strategy to resolve the issue as quickly as possible.
