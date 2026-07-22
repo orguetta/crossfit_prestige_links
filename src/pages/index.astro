@@ -47,23 +47,21 @@ const keywords = Config.about.split(" ").join(", ");
                     src="/logo.png" 
                     alt="CrossFit Prestige" 
                 />
-                <script is:inline>
-                    (function() {
-                        const img = document.getElementById('logo-image');
-                        if (img) {
-                            img.addEventListener('error', function() {
-                                if (img.src.indexOf('/logo.png') !== -1) {
-                                    img.src = '/logo.svg';
-                                } else {
-                                    img.style.display = 'none';
-                                    const fallback = document.getElementById('logo-fallback');
-                                    if (fallback) {
-                                        fallback.style.display = 'flex';
-                                    }
+                <script>
+                    const img = document.getElementById('logo-image') as HTMLImageElement | null;
+                    if (img) {
+                        img.addEventListener('error', function() {
+                            if (img.src.indexOf('/logo.png') !== -1) {
+                                img.src = '/logo.svg';
+                            } else {
+                                img.style.display = 'none';
+                                const fallback = document.getElementById('logo-fallback');
+                                if (fallback) {
+                                    fallback.style.display = 'flex';
                                 }
-                            });
-                        }
-                    })();
+                            }
+                        });
+                    }
                 </script>
                 <div id="logo-fallback" class="avatar-fallback" style="display: none;">
                     CP

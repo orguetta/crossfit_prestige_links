@@ -15,8 +15,21 @@ console.log(params, url);
 
 const link_data = Config.links.find((l: LLLink) => l.link === params.link);
 
-if (link_data) { return Astro.redirect(link_data.href); }
-else { return Astro.redirect("/"); }
+if (link_data) {
+    const allowedProtocols = ['https:', 'http:'];
+    try {
+        const redirectUrl = new URL(link_data.href);
+        if (allowedProtocols.includes(redirectUrl.protocol)) {
+            return Astro.redirect(link_data.href);
+        }
+    } catch (e) {
+        // Fallback for safe relative paths
+        if (link_data.href.startsWith('/')) {
+            return Astro.redirect(link_data.href);
+        }
+    }
+}
+return Astro.redirect("/");
 
 // TOOD: add qr code shit
 // TODO: fix metadata
