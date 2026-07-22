@@ -6,6 +6,7 @@ import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://link.prestigefit.co.il",
   output: "server",
   adapter: cloudflare(),
   prefetch: true,
