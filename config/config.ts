@@ -3,7 +3,7 @@ import type { LLConfig } from "../src/types";
 export const Config: LLConfig = {
     title: "CrossFit Prestige",
     subtitle: "POWER • WELLNESS • COMMUNITY",
-    about: "יוקרה. כוח. קהילה. מרחב אימונים מתקדם המשלב קרוספיט, יוגה ופילאטיס.",
+    about: "מרחב אימונים מתקדם המשלב קרוספיט, יוגה ופילאטיס.",
     image: "/logo.svg", // This will fallback to logo.png or text avatar if logo is missing in public
     links: [
         {
