@@ -55,6 +55,20 @@ export const Config: LLConfig = {
                 code: "f059",
                 bold: true
             }
+        },
+        {
+            name: "תקנון מצטרפים",
+            href: "/terms",
+            desc: "תקנון מצטרפים קרוספיט פריסטיג׳",
+            link: "terms",
+            hide: true
+        },
+        {
+            name: "תקנון מצטרפים",
+            href: "/terms",
+            desc: "תקנון מצטרפים קרוספיט פריסטיג׳",
+            link: "תקנון",
+            hide: true
         }
     ],
     socials: {

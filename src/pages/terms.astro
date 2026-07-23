@@ -1,0 +1,241 @@
+---
+import { Content as TermsContent } from "../data/terms.md";
+import { Config } from "../../config/config";
+import '../../config/styles.scss';
+
+const title = "תקנון מצטרפים | CrossFit Prestige";
+const description = "תקנון מצטרפים ותנאי שימוש של קרוספיט פריסטיג׳";
+---
+
+<html lang="he" dir="rtl">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content={ description }>
+		<meta name="robots" content="noindex, nofollow">
+		<meta name="theme-color" content="#272521"/>
+		<meta name="author" content={ Config.title }>
+		<meta name="generator" content={ Astro.generator } />
+
+		<meta property="og:title" content={ title }>
+		<meta property="og:description" content={ description }>
+		<meta property="og:image" content="/favicon.ico">
+		<meta property="og:url" content={ Astro.url }>
+		<meta property="og:site_name" content={ Config.title }>
+		<meta property="og:type" content="website">
+
+		<title>{ title }</title>
+	</head>
+	<body>
+		<header>
+			<div class="logo-container">
+                <img 
+                    id="logo-image" 
+                    src="/logo.png" 
+                    alt="CrossFit Prestige" 
+                />
+                <script is:inline>
+                    (function() {
+                        const img = document.getElementById('logo-image');
+                        if (img) {
+                            function handleError() {
+                                if (img.src.indexOf('/logo.png') !== -1) {
+                                    img.src = '/logo.svg';
+                                } else {
+                                    img.style.display = 'none';
+                                    const fallback = document.getElementById('logo-fallback');
+                                    if (fallback) {
+                                        fallback.style.display = 'flex';
+                                    }
+                                }
+                            }
+                            img.addEventListener('error', handleError);
+                            if (img.complete && img.naturalWidth === 0) {
+                                handleError();
+                            }
+                        }
+                    })();
+                </script>
+                <div id="logo-fallback" class="avatar-fallback" style="display: none;">
+                    CP
+                </div>
+			</div>
+			<h1>תקנון מצטרפים</h1>
+            <p class="subtitle">{ Config.title }</p>
+		</header>
+		<main>
+            <div class="back-button-container">
+                <a href="/" class="back-link">
+                    <i style="font-family: 'Font Awesome 6 Free'; font-weight: 900; margin-left: 8px;">&#xf061;</i>
+                    <span>חזרה לעמוד הראשי</span>
+                </a>
+            </div>
+
+			<div class="terms-container">
+				<TermsContent />
+			</div>
+
+            <div class="back-button-container" style="margin-top: 30px;">
+                <a href="/" class="back-link">
+                    <i style="font-family: 'Font Awesome 6 Free'; font-weight: 900; margin-left: 8px;">&#xf061;</i>
+                    <span>חזרה לעמוד הראשי</span>
+                </a>
+            </div>
+		</main>
+		<footer>
+			<h5>Made with ❤️ by <a href="https://or.guetta.tech">Or Guetta</a></h5>
+		</footer>
+	</body>
+</html>
+
+<style lang="scss">
+    $color-dark-charcoal: #272521;
+    $color-bronze: #8B6540;
+    $color-taupe-beige: #DBCEBE;
+    $color-cream-white: #EDE4D9;
+    $color-pure-white: #ffffff;
+
+    :global(body) {
+        max-width: 960px !important; // Overrides the 580px linktree width for desktop reading comfort
+    }
+
+    .back-button-container {
+        width: 100%;
+        margin-bottom: 24px;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        background-color: rgba(39, 37, 33, 0.4);
+        border: 1.5px solid $color-bronze;
+        border-radius: 20px;
+        padding: 10px 20px;
+        color: $color-cream-white;
+        font-family: 'Tel Aviv Brutalist', sans-serif;
+        font-size: 0.95rem;
+        font-weight: bold;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        cursor: pointer;
+
+        &:hover {
+            background-color: $color-bronze;
+            border-color: $color-bronze;
+            color: $color-dark-charcoal;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 101, 64, 0.25);
+
+            i {
+                color: $color-dark-charcoal;
+            }
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+    }
+
+    .terms-container {
+        width: 100%;
+        direction: rtl;
+        text-align: right;
+        background-color: rgba(22, 21, 19, 0.4);
+        border: 1px solid rgba(139, 101, 64, 0.2);
+        border-radius: 16px;
+        padding: 40px 48px; // Wider padding for a spacious reading experience on desktop
+        box-sizing: border-box;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+        // Styling markdown content
+        :global(h1) {
+            font-family: 'Tel Aviv Brutalist', sans-serif;
+            font-size: 1.8rem;
+            color: $color-cream-white;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid $color-bronze;
+            padding-bottom: 10px;
+        }
+
+        :global(h2) {
+            font-family: 'Tel Aviv Brutalist', sans-serif;
+            font-size: 1.4rem;
+            color: $color-cream-white;
+            margin-top: 30px;
+            margin-bottom: 16px;
+            border-bottom: 1px dashed rgba(139, 101, 64, 0.4);
+            padding-bottom: 6px;
+        }
+
+        :global(h3) {
+            font-family: 'Tel Aviv Brutalist', sans-serif;
+            font-size: 1.2rem;
+            color: $color-cream-white;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        :global(p) {
+            font-family: 'Tel Aviv Brutalist', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: $color-taupe-beige;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        :global(strong) {
+            color: $color-pure-white;
+            font-weight: bold;
+        }
+
+        :global(ul), :global(ol) {
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-right: 24px;
+            padding-left: 0;
+        }
+
+        :global(li) {
+            font-family: 'Tel Aviv Brutalist', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: $color-taupe-beige;
+            margin-bottom: 10px;
+
+            &::marker {
+                color: $color-bronze;
+                font-weight: bold;
+            }
+        }
+
+        :global(a) {
+            color: $color-bronze;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+
+            &:hover {
+                border-color: $color-bronze;
+                color: $color-cream-white;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .terms-container {
+            padding: 30px 24px; // Responsive intermediate width padding
+        }
+    }
+
+    @media (max-width: 480px) {
+        .terms-container {
+            padding: 20px 16px;
+            border-radius: 12px;
+        }
+    }
+</style>

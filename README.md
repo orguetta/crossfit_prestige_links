@@ -30,17 +30,21 @@ To customize the links and content for your brand:
 Ensure you have a modern version of Node.js installed.
 
 1. **Install Dependencies**:
+
    ```bash
    npm install
    ```
 
 2. **Start the Local Development Server**:
+
    ```bash
    npm run dev
    ```
+
    Open your browser to: `http://localhost:4321`
 
 3. **Verify and Build for Production**:
+
    ```bash
    npm run build
    ```
