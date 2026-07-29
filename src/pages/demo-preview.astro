@@ -54,9 +54,10 @@
 					<p class="subtitle">
 						מפגש יוצא דופן בין העוצמה והקהילתיות של הקרוספיט, לבין הדיוק והשלווה של סטודיו פילאטיס מכשירים ויוגה. מרחב פרימיום ענק ומאובזר בציוד הקצה החדשני ביותר, המנוהל על ידי צוות מאמני העילית המוביל בישראל. ממוקם ממש מחוץ לתחנת הרכבת נתניה.
 					</p>
+					<!-- FIX P1: Primary = gold solid fill / cream text. Secondary = ghost outline, de-emphasised -->
 					<div class="hero-actions">
-						<a href="#presale" class="btn btn-primary">הבטיחו מנוי מייסדים בפריסייל <span class="arrow">←</span></a>
-						<a href="#schedule" class="btn btn-secondary">צפו במערכת השעות של Arbox</a>
+						<a href="#presale" class="btn btn-primary" id="hero-cta-primary">הבטיחו מנוי מייסדים בפריסייל <span class="arrow">←</span></a>
+						<a href="#schedule" class="btn btn-secondary" id="hero-cta-secondary">צפו במערכת השעות של Arbox</a>
 					</div>
 				</div>
 				
@@ -125,18 +126,30 @@
 						</p>
 					</div>
 					<div class="about-visual">
+						<!-- FIX P1: Real facility photo full-bleed -->
 						<div class="about-frame">
-							<div class="about-stat-box">
-								<span class="stat-num">12+</span>
-								<span class="stat-lbl">סניפי רשת HYPR</span>
-							</div>
-							<div class="about-stat-box">
-								<span class="stat-num">95%</span>
-								<span class="stat-lbl">אחוז התמדה בענף</span>
-							</div>
-							<div class="about-stat-box">
-								<span class="stat-num">140+</span>
-								<span class="stat-lbl">שעות אימון שבועיות</span>
+							<figure class="about-photo-frame">
+								<img 
+									src="/facility-box.jpg" 
+									alt="מתחם הקרוספיט של CrossFit Prestige נתניה — ציוד קצה ומרחב אימונים פרימיום" 
+									class="about-photo"
+									loading="lazy"
+								/>
+								<figcaption class="photo-tag">CROSSFIT PRESTIGE · NETANYA</figcaption>
+							</figure>
+							<div class="about-stats-row">
+								<div class="about-stat-box">
+									<span class="stat-num">12+</span>
+									<span class="stat-lbl">סניפי רשת HYPR</span>
+								</div>
+								<div class="about-stat-box">
+									<span class="stat-num">95%</span>
+									<span class="stat-lbl">אחוז התמדה בענף</span>
+								</div>
+								<div class="about-stat-box">
+									<span class="stat-num">140+</span>
+									<span class="stat-lbl">שעות אימון שבועיות</span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -155,16 +168,42 @@
 
 				<div class="brutalist-grid">
 					<div class="grid-card">
+						<!-- FIX P1: Icon in sand circle per Icon Container Spec -->
+						<div class="card-icon" aria-hidden="true">
+							<svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<!-- Person silhouette with upward arrow — persistence/support -->
+								<circle cx="30" cy="14" r="8" fill="#272521"/>
+								<path d="M18 42 C18 32 42 32 42 42 L42 46 L18 46 Z" fill="#272521"/>
+								<path d="M30 50 L30 36 M30 36 L24 42 M30 36 L36 42" stroke="#272521" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</div>
 						<div class="card-number">01</div>
 						<h3 class="card-title">מעטפת התמדה אישית</h3>
 						<p class="card-text">אנחנו לא ניתן לכם לוותר. הבעיה הגדולה ביותר בעולם הכושר היא לא האימונים – אלא ההתמדה. לכן, לכל חבר במועדון מוצמד מלווה התמדה אישי שעוקב, תומך ומסייע לכם לנצח את השגרה ולהפוך את הכושר לחלק בלתי נפרד מסגנון החיים שלכם. כי ההצלחה שלכם היא ההתחייבות שלנו.</p>
 					</div>
 					<div class="grid-card">
+						<!-- FIX P1: Flowing lines icon — movement/flow -->
+						<div class="card-icon" aria-hidden="true">
+							<svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M10 22 Q20 14 30 22 Q40 30 50 22" stroke="#272521" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+								<path d="M10 30 Q20 22 30 30 Q40 38 50 30" stroke="#272521" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+								<path d="M10 38 Q20 30 30 38 Q40 46 50 38" stroke="#272521" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+							</svg>
+						</div>
 						<div class="card-number">02</div>
 						<h3 class="card-title">סטודיו פילאטיס מכשירים ויוגה</h3>
 						<p class="card-text">האיזון המושלם לגוף ולנפש. מרחב מעוצב ושקט המציע שיעורי פילאטיס מכשירים מדויקים ויוגה זורמת. המעטפת השיקומית והמייצבת המושלמת שתמנע פציעות, תחזק את הליבה ותשלים את אימוני הכוח והקרוספיט העצימים שלכם.</p>
 					</div>
 					<div class="grid-card">
+						<!-- FIX P1: Circular path/target icon — onboarding journey -->
+						<div class="card-icon" aria-hidden="true">
+							<svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<circle cx="30" cy="30" r="18" stroke="#272521" stroke-width="2.5" stroke-dasharray="6 4"/>
+								<circle cx="30" cy="30" r="9" stroke="#272521" stroke-width="2" fill="none"/>
+								<circle cx="30" cy="30" r="3" fill="#272521"/>
+								<path d="M30 12 L33 8 L30 12 L27 8 L30 12" stroke="#272521" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</div>
 						<div class="card-number">03</div>
 						<h3 class="card-title">Onboarding פרטני ומקצועי</h3>
 						<p class="card-text">מתחילים נכון ובטוח מהיום הראשון. אנחנו לא זורקים אתכם למים העמוקים. כל מתאמן חדש מתחיל באימון קבלת פנים אישי שבו נבין ונאבחן את רמת התנועתיות והכושר שלכם, נבין את היעדים והלו"ז שלכם, ונבנה עבורכם מסלול הדרגתי, בטוח ומותאם אישית המבטיח תוצאות לטווח הארוך.</p>
@@ -173,11 +212,11 @@
 			</div>
 		</section>
 
-		<!-- The Studio Split Section -->
+		<!-- The Studio Split Section — FIX P2: Full Wellness cream/charcoal treatment -->
 		<section class="studio-section" id="studio">
 			<div class="studio-container">
 				<div class="studio-content">
-					<div class="eyebrow">MIND, BODY & SOUL</div>
+					<div class="eyebrow">MIND, BODY &amp; SOUL</div>
 					<h2 class="studio-title">סטודיו פילאטיס מכשירים <span class="highlight">ויוגה בוטיק</span></h2>
 					<p class="studio-desc">
 						השילוב המדעי המנצח: כוח מתפרץ לצד גמישות ודיוק תנועתי. הסטודיו מציע מפלט שקט ומעוצב מהיומיום העמוס, המצויד בציוד היוקרתי והמתקדם ביותר בארץ. כאן תיהנו מאימונים בקבוצות קטנות המבטיחות יחס אישי ללא פשרות, ומהדרכה צמודה של המאמנות המובילות בישראל.
@@ -201,9 +240,13 @@
 				<div class="studio-visual">
 					<div class="studio-frame">
 						<div class="glow-effect"></div>
-						<div class="simulated-studio-img">
-							<div class="overlay-text">BALANCE & STRENGTH</div>
-						</div>
+						<!-- FIX P1: Real Pilates studio image -->
+						<img 
+							src="/pilates-studio.jpg" 
+							alt="סטודיו פילאטיס מכשירים בוטיק — CrossFit Prestige נתניה"
+							class="studio-photo"
+							loading="lazy"
+						/>
 					</div>
 				</div>
 			</div>
@@ -216,7 +259,7 @@
 					<div class="eyebrow">צוות מאמני העילית</div>
 					<h2 class="section-title">הרמה המקצועית <span class="highlight">הגבוהה בישראל</span></h2>
 					<p class="section-desc">
-						הלב הפועל של CrossFit Prestige הוא צוות המאמנים המקצועי שלנו. אנחנו לא מתפתח על רמת הדרכה בינונית, ומחזיקים במאמנים המובילים בענף הכושר בישראל.
+						הלב הפועם של CrossFit Prestige הוא צוות המאמנים המקצועי שלנו. אנחנו לא מתפשרים על רמת הדרכה בינונית, ומחזיקים במאמנים המובילים בענף הכושר בישראל.
 					</p>
 				</div>
 
@@ -341,11 +384,20 @@
 					<img src="/Signage_prestige.svg" alt="CrossFit Prestige Logo" class="footer-logo-vertical" />
 				</div>
 				<div class="footer-copy">
-					<p>© 2026 CrossFit Prestige & HYPR Training. כל הזכויות שמורות.</p>
+					<p>© 2026 CrossFit Prestige &amp; HYPR Training. כל הזכויות שמורות.</p>
 					<p class="private-tag">דף הדגמה פרטי ומאובטח – אינו מאונדקס במנועי חיפוש.</p>
 				</div>
 			</div>
 		</footer>
+
+		<!-- FIX P2: Sticky CTA bar — appears after 300px scroll, hides when contact section is visible -->
+		<div id="sticky-cta" role="complementary" aria-label="הרשמה לפריסייל">
+			<div class="sticky-cta-inner">
+				<p class="sticky-cta-text">מנויי פריסייל מוגבלים ל-50 הראשונים בלבד</p>
+				<a href="#contact" class="btn btn-primary mini sticky-cta-btn">להבטחת מקום ←</a>
+			</div>
+			<button class="sticky-cta-close" aria-label="סגור" id="sticky-close">✕</button>
+		</div>
 
 		<!-- Header Scroll Micro-interaction Script -->
 		<script is:inline>
@@ -359,6 +411,52 @@
 							navbar.classList.remove('scrolled');
 						}
 					});
+				}
+			})();
+		</script>
+
+		<!-- Sticky CTA Script -->
+		<script is:inline>
+			(function() {
+				const stickyCta = document.getElementById('sticky-cta');
+				const stickyClose = document.getElementById('sticky-close');
+				if (!stickyCta || !stickyClose) return;
+
+				let dismissed = false;
+
+				// Show after 300px scroll
+				window.addEventListener('scroll', () => {
+					if (dismissed) return;
+					if (window.scrollY > 300) {
+						stickyCta.classList.add('visible');
+					} else {
+						stickyCta.classList.remove('visible');
+					}
+				}, { passive: true });
+
+				// Dismiss on close button
+				stickyClose.addEventListener('click', () => {
+					dismissed = true;
+					stickyCta.classList.remove('visible');
+					stickyCta.classList.add('dismissed');
+				});
+
+				// Hide when contact section enters viewport (user has reached the form)
+				const contactSection = document.getElementById('contact');
+				if (contactSection && 'IntersectionObserver' in window) {
+					const observer = new IntersectionObserver(
+						(entries) => {
+							for (const entry of entries) {
+								if (entry.isIntersecting) {
+									stickyCta.classList.remove('visible');
+								} else if (!dismissed && window.scrollY > 300) {
+									stickyCta.classList.add('visible');
+								}
+							}
+						},
+						{ threshold: 0.15 }
+					);
+					observer.observe(contactSection);
 				}
 			})();
 		</script>
@@ -383,7 +481,7 @@
 						}
 					);
 
-					const targets = document.querySelectorAll('.grid-card, .coach-card, .about-stat-box, .studio-frame, .map-wrapper');
+					const targets = document.querySelectorAll('.grid-card, .coach-card, .about-stat-box, .studio-frame, .map-wrapper, .about-photo-frame');
 					targets.forEach((el) => {
 						el.style.opacity = '0';
 						el.style.transform = 'translateY(40px)';
@@ -399,10 +497,10 @@
 	// DESIGN TOKENS
 	$color-dark-charcoal: #272521; // Rich warm charcoal background
 	$color-dark-deep: #161513;     // Deep warm black for gradients
-	$color-bronze: #8B6540;        // Sophisticated athletic bronze
+	$color-bronze: #8B6540;        // Sophisticated athletic bronze / --color-gold
 	$color-bronze-dark: #6e4d2f;   // Darker shade for deep transitions
-	$color-taupe-beige: #DBCEBE;   // Elegant secondary text taupe
-	$color-cream-white: #EDE4D9;   // Premium primary text cream
+	$color-taupe-beige: #DBCEBE;   // Elegant secondary text taupe / --color-sand
+	$color-cream-white: #EDE4D9;   // Premium primary text cream / --color-cream
 	$color-pure-white: #ffffff;
 
 	// BASE STYLES & RESET
@@ -499,9 +597,10 @@
 			font-size: 0.85rem;
 		}
 
+		// FIX P1: Primary CTA — gold solid fill, CREAM text (not dark-deep)
 		&.btn-primary {
 			background-color: $color-bronze;
-			color: $color-dark-deep;
+			color: $color-cream-white; // was $color-dark-deep — now cream per spec
 			border-color: $color-bronze;
 
 			&::after {
@@ -511,7 +610,7 @@
 				bottom: 0;
 				left: 0;
 				right: 0;
-				background-color: $color-pure-white;
+				background-color: $color-bronze-dark;
 				transform: scaleX(0);
 				transform-origin: right;
 				transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -519,8 +618,8 @@
 			}
 
 			&:hover {
-				color: $color-dark-deep;
-				box-shadow: 0 10px 24px rgba(139, 101, 64, 0.4);
+				color: $color-cream-white;
+				box-shadow: 0 10px 24px rgba(139, 101, 64, 0.45);
 				transform: translateY(-2px);
 
 				&::after {
@@ -539,15 +638,16 @@
 			}
 		}
 
+		// FIX P1: Secondary — ghost button, de-emphasised (reduced opacity border)
 		&.btn-secondary {
 			background-color: transparent;
-			color: $color-cream-white;
-			border-color: $color-bronze;
+			color: $color-taupe-beige; // sand, de-emphasised vs cream primary
+			border-color: rgba(139, 101, 64, 0.5); // softer than primary gold
 
 			&:hover {
-				background-color: rgba(139, 101, 64, 0.15);
-				border-color: $color-cream-white;
-				color: $color-pure-white;
+				background-color: rgba(139, 101, 64, 0.12);
+				border-color: $color-bronze;
+				color: $color-cream-white;
 				transform: translateY(-2px);
 			}
 		}
@@ -784,7 +884,7 @@
 		}
 	}
 
-	// MARQUEE
+	// MARQUEE — FIX P2: ~15% opacity so it reads as background texture, not foreground content
 	.marquee {
 		border-block: 1.5px solid rgba(139, 101, 64, 0.3);
 		background-color: rgba(22, 21, 19, 0.5);
@@ -803,13 +903,15 @@
 				font-size: 1.1rem;
 				font-weight: bold;
 				letter-spacing: 3px;
-				color: $color-taupe-beige;
+				// FIX P2: Reduced to ~15% opacity — background texture, not foreground text
+				color: rgba(219, 206, 190, 0.15);
 				display: inline-flex;
 				align-items: center;
 				gap: 40px;
 
 				&:nth-child(even) {
-					color: $color-bronze;
+					// Dots — same low opacity treatment
+					color: rgba(139, 101, 64, 0.15);
 				}
 			}
 		}
@@ -869,15 +971,60 @@
 		.about-frame {
 			display: flex;
 			flex-direction: column;
-			gap: 24px;
+			gap: 16px;
 			width: 100%;
-			max-width: 380px;
+			max-width: 420px;
+		}
+
+		// FIX P1: Full-bleed facility photo frame
+		.about-photo-frame {
+			position: relative;
+			border: 1.5px solid $color-bronze;
+			border-radius: 4px;
+			overflow: hidden;
+			box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+			aspect-ratio: 16/9;
+			margin: 0;
+
+			.about-photo {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+				display: block;
+				transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+			}
+
+			&:hover .about-photo {
+				transform: scale(1.04);
+			}
+
+			.photo-tag {
+				position: absolute;
+				bottom: 12px;
+				right: 12px;
+				font-family: 'Anton', sans-serif;
+				font-size: 0.7rem;
+				letter-spacing: 2px;
+				color: $color-cream-white;
+				background-color: rgba(22, 21, 19, 0.75);
+				backdrop-filter: blur(6px);
+				border: 1px solid rgba(139, 101, 64, 0.4);
+				padding: 4px 10px;
+				border-radius: 2px;
+			}
+		}
+
+		// FIX P2: Stats as a horizontal row below the photo
+		.about-stats-row {
+			display: flex;
+			gap: 12px;
 		}
 
 		.about-stat-box {
 			background-color: rgba(39, 37, 33, 0.4);
 			border: 1.5px solid rgba(139, 101, 64, 0.3);
-			padding: 24px;
+			padding: 20px 16px;
 			border-radius: 4px;
 			display: flex;
 			flex-direction: column;
@@ -885,6 +1032,7 @@
 			text-align: center;
 			box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 			transition: all 0.3s ease;
+			flex: 1;
 
 			&:hover {
 				border-color: $color-bronze;
@@ -893,16 +1041,23 @@
 
 			.stat-num {
 				font-family: 'Anton', sans-serif;
-				font-size: 2.8rem;
+				font-size: 2.2rem;
 				color: $color-bronze;
 				line-height: 1.1;
 				margin-bottom: 6px;
 			}
 
+			// FIX P2: Larger, higher-contrast label so number+label read as one unit
 			.stat-lbl {
-				font-size: 0.95rem;
-				color: $color-taupe-beige;
+				font-size: 0.8rem;
+				color: $color-cream-white; // was taupe-beige — now cream for contrast
 				font-weight: bold;
+				letter-spacing: 0.5px;
+				line-height: 1.3;
+				border-top: 1px solid rgba(139, 101, 64, 0.2);
+				padding-top: 6px;
+				width: 100%;
+				text-align: center;
 			}
 		}
 
@@ -913,11 +1068,12 @@
 			}
 			.about-frame {
 				max-width: 100%;
-				flex-direction: row;
+			}
+			.about-stats-row {
 				flex-wrap: wrap;
 			}
 			.about-stat-box {
-				flex: 1 1 180px;
+				flex: 1 1 120px;
 			}
 		}
 	}
@@ -974,6 +1130,31 @@
 				background-color: #1e1b18;
 			}
 
+			// FIX P1: Icon container — sand (#DBCEBE) circle, 120×120px, 1.5px charcoal border
+			.card-icon {
+				width: 80px;
+				height: 80px;
+				border-radius: 50%;
+				background-color: $color-taupe-beige; // --color-sand
+				border: 1.5px solid $color-dark-charcoal; // 1.5px charcoal border per spec
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-bottom: 20px;
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+				svg {
+					width: 42px;
+					height: 42px;
+					display: block;
+				}
+			}
+
+			&:hover .card-icon {
+				transform: scale(1.08);
+				box-shadow: 0 6px 20px rgba(139, 101, 64, 0.3);
+			}
+
 			.card-number {
 				font-family: 'Anton', sans-serif;
 				font-size: 3rem;
@@ -1003,11 +1184,21 @@
 		}
 	}
 
-	// STUDIO SECTION
+	// STUDIO SECTION — FIX P2: Full Wellness cream/charcoal treatment (two-world brand rhythm)
 	.studio-section {
 		padding: 120px 0;
-		background-color: rgba(22, 21, 19, 0.4);
-		border-bottom: 1.5px solid rgba(139, 101, 64, 0.15);
+		// Wellness world: cream background, charcoal text — contrast with Power's dark
+		background-color: $color-cream-white;
+		color: $color-dark-charcoal;
+		border-bottom: 1.5px solid rgba(139, 101, 64, 0.25);
+
+		// Override eyebrow for light background
+		.eyebrow {
+			color: $color-bronze;
+			&::before {
+				background-color: $color-bronze;
+			}
+		}
 
 		.studio-container {
 			max-width: 1200px;
@@ -1023,11 +1214,16 @@
 			font-size: clamp(2rem, 4vw, 2.8rem);
 			line-height: 1.1;
 			margin-bottom: 20px;
+			color: $color-dark-charcoal;
+
+			.highlight {
+				color: $color-bronze;
+			}
 		}
 
 		.studio-desc {
 			font-size: 1.1rem;
-			color: $color-taupe-beige;
+			color: rgba(39, 37, 33, 0.72); // dark charcoal at 72% — readable on cream
 			margin-bottom: 28px;
 			font-weight: 300;
 		}
@@ -1042,7 +1238,7 @@
 				gap: 12px;
 				margin-bottom: 16px;
 				font-size: 1rem;
-				color: $color-cream-white;
+				color: $color-dark-charcoal;
 
 				.icon {
 					color: $color-bronze;
@@ -1056,6 +1252,13 @@
 			}
 		}
 
+		// CTA on light background: same gold fill, cream text — works on cream bg
+		.btn-primary {
+			background-color: $color-bronze;
+			color: $color-cream-white;
+			border-color: $color-bronze;
+		}
+
 		.studio-visual {
 			display: flex;
 			justify-content: center;
@@ -1067,31 +1270,32 @@
 			aspect-ratio: 4/3;
 			border: 1.5px solid $color-bronze;
 			position: relative;
-			box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+			box-shadow: 0 15px 35px rgba(39, 37, 33, 0.2);
 			overflow: hidden;
+			border-radius: 4px;
 
-			.simulated-studio-img {
+			.glow-effect {
+				position: absolute;
+				inset: 0;
+				background: radial-gradient(circle at 70% 30%, rgba(139, 101, 64, 0.08) 0%, transparent 60%);
+				pointer-events: none;
+				z-index: 1;
+			}
+
+			// FIX P1: Real Pilates studio image
+			.studio-photo {
 				width: 100%;
 				height: 100%;
-				background: linear-gradient(135deg, #1b1916 0%, #2a2520 100%);
-				display: flex;
-				align-items: center;
-				justify-content: center;
+				object-fit: cover;
+				object-position: center;
+				display: block;
+				transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+				position: relative;
+				z-index: 0;
+			}
 
-				&::before {
-					content: "BALANCE";
-					font-family: 'Anton', sans-serif;
-					font-size: 5rem;
-					color: rgba(139, 101, 64, 0.03);
-				}
-
-				.overlay-text {
-					position: absolute;
-					font-family: 'Anton', sans-serif;
-					color: rgba(139, 101, 64, 0.25);
-					letter-spacing: 2px;
-					font-size: 0.9rem;
-				}
+			&:hover .studio-photo {
+				transform: scale(1.04);
 			}
 		}
 
@@ -1447,6 +1651,90 @@
 		}
 	}
 
+	// FIX P2: STICKY CTA BAR
+	#sticky-cta {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 200;
+		background-color: $color-dark-charcoal;
+		border-top: 1.5px solid $color-bronze;
+		box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.5);
+		transform: translateY(100%);
+		transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 14px 24px;
+		gap: 24px;
+
+		&.visible {
+			transform: translateY(0);
+		}
+
+		&.dismissed {
+			display: none;
+		}
+
+		.sticky-cta-inner {
+			display: flex;
+			align-items: center;
+			gap: 24px;
+			flex: 1;
+			justify-content: center;
+			max-width: 800px;
+		}
+
+		.sticky-cta-text {
+			font-size: 0.95rem;
+			color: $color-taupe-beige;
+			font-weight: 500;
+		}
+
+		.sticky-cta-btn {
+			white-space: nowrap;
+			flex-shrink: 0;
+		}
+
+		.sticky-cta-close {
+			background: none;
+			border: 1.5px solid rgba(139, 101, 64, 0.3);
+			color: $color-taupe-beige;
+			width: 32px;
+			height: 32px;
+			border-radius: 50%;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 0.8rem;
+			transition: all 0.2s ease;
+			flex-shrink: 0;
+
+			&:hover {
+				border-color: $color-bronze;
+				color: $color-cream-white;
+			}
+		}
+
+		@media (max-width: 600px) {
+			flex-wrap: wrap;
+			padding: 12px 16px;
+			gap: 12px;
+
+			.sticky-cta-inner {
+				flex-direction: column;
+				gap: 12px;
+			}
+
+			.sticky-cta-text {
+				font-size: 0.85rem;
+				text-align: center;
+			}
+		}
+	}
+
 	// HIGH-PERFORMANCE NATIVE SCROLL REVEAL ANIMATIONS (Compositor Thread Only!)
 	@media (prefers-reduced-motion: no-preference) {
 		@supports ((animation-timeline: view()) and (animation-range: entry)) {
@@ -1461,7 +1749,7 @@
 				}
 			}
 
-			.grid-card, .coach-card, .about-stat-box, .studio-frame, .map-wrapper {
+			.grid-card, .coach-card, .about-stat-box, .studio-frame, .map-wrapper, .about-photo-frame {
 				animation: reveal-up auto cubic-bezier(0.16, 1, 0.3, 1) backwards;
 				animation-timeline: view();
 				animation-range: entry 10% entry 70%;
