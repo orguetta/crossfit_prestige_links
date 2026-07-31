@@ -212,6 +212,11 @@
 			</div>
 		</section>
 
+		<!-- Dark Separator Strip between two Wellness (cream) sections -->
+		<div class="section-divider" aria-hidden="true">
+			<span class="divider-mark">✦</span>
+		</div>
+
 		<!-- The Studio Split Section — FIX P2: Full Wellness cream/charcoal treatment -->
 		<section class="studio-section" id="studio">
 			<div class="studio-container">
@@ -255,7 +260,7 @@
 		<!-- Coaches Section -->
 		<section class="coaches-section" id="coaches">
 			<div class="container">
-				<div class="section-header center">
+				<div class="section-header">
 					<div class="eyebrow">צוות מאמני העילית</div>
 					<h2 class="section-title">הרמה המקצועית <span class="highlight">הגבוהה בישראל</span></h2>
 					<p class="section-desc">
@@ -285,7 +290,7 @@
 		<!-- Arbox Live Schedule Integration -->
 		<section class="schedule-section" id="schedule">
 			<div class="container">
-				<div class="section-header center">
+				<div class="section-header">
 					<div class="eyebrow">מערכת שעות דינמית</div>
 					<h2 class="section-title">מערכת השעות של <span class="highlight">קרוספיט פרסטיג׳</span></h2>
 					<p class="section-desc">למעלה מ-140 שעות אימון שבועיות שמתאימות לכל סדר יום. שריינו את מקומכם בקלות ישירות דרך מערכת השעות המובנית של Arbox.</p>
@@ -935,9 +940,14 @@
 
 		.about-grid {
 			display: grid;
-			grid-template-columns: 1.2fr 1fr;
+			grid-template-columns: 1fr 1.2fr; // Flipped vs hero: image first (right in RTL)
 			gap: 80px;
 			align-items: center;
+		}
+
+		// Flip: visual on right (first column in RTL), copy on left
+		.about-visual {
+			order: -1;
 		}
 
 		.about-title {
@@ -1078,10 +1088,20 @@
 		}
 	}
 
-	// WHY US / BRUTALIST GRID
+	// WHY US / BRUTALIST GRID — Wellness world (cream bg, charcoal text)
 	.why-us {
 		padding: 120px 0;
-		border-bottom: 1.5px solid rgba(139, 101, 64, 0.15);
+		background-color: $color-cream-white;
+		color: $color-dark-charcoal;
+		border-bottom: none; // Adjacent to divider strip, no double border
+
+		// Override eyebrow for light background
+		.eyebrow {
+			color: $color-bronze;
+			&::before {
+				background-color: $color-bronze;
+			}
+		}
 
 		.container {
 			max-width: 1200px;
@@ -1111,6 +1131,16 @@
 			color: $color-taupe-beige;
 			font-weight: 300;
 		}
+
+		// Wellness-world override: charcoal text on cream bg
+		.why-us & {
+			.section-title {
+				color: $color-dark-charcoal;
+			}
+			.section-desc {
+				color: rgba(39, 37, 33, 0.72);
+			}
+		}
 	}
 
 	.brutalist-grid {
@@ -1122,21 +1152,32 @@
 		box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 
 		.grid-card {
-			background-color: $color-dark-charcoal;
 			padding: 48px 36px;
 			transition: background-color 0.3s ease;
+
+			// Default (dark context): charcoal card bg
+			background-color: $color-dark-charcoal;
 
 			&:hover {
 				background-color: #1e1b18;
 			}
 
-			// FIX P1: Icon container — sand (#DBCEBE) circle, 120×120px, 1.5px charcoal border
+			// Wellness-world (cream context): cream card bg
+			.why-us & {
+				background-color: $color-cream-white;
+
+				&:hover {
+					background-color: darken($color-cream-white, 4%);
+				}
+			}
+
+			// Icon container — sand circle
 			.card-icon {
 				width: 80px;
 				height: 80px;
 				border-radius: 50%;
 				background-color: $color-taupe-beige; // --color-sand
-				border: 1.5px solid $color-dark-charcoal; // 1.5px charcoal border per spec
+				border: 1.5px solid $color-dark-charcoal;
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -1147,6 +1188,22 @@
 					width: 42px;
 					height: 42px;
 					display: block;
+				}
+			}
+
+			// Wellness-world icon: charcoal circle with cream/sand SVG
+			.why-us & .card-icon {
+				background-color: $color-dark-charcoal;
+				border-color: $color-taupe-beige;
+
+				svg {
+					// Invert icon fills to cream/sand on dark circle
+					circle[fill], path[fill] {
+						fill: $color-taupe-beige;
+					}
+					circle[stroke], path[stroke] {
+						stroke: $color-taupe-beige;
+					}
 				}
 			}
 
@@ -1170,12 +1227,28 @@
 				color: $color-cream-white;
 			}
 
+			// Wellness-world text overrides
+			.why-us & .card-title {
+				color: $color-dark-charcoal;
+			}
+
 			.card-text {
 				font-size: 0.95rem;
 				color: $color-taupe-beige;
 				font-weight: 300;
 				line-height: 1.6;
 			}
+
+			.why-us & .card-text {
+				color: rgba(39, 37, 33, 0.72);
+			}
+		}
+
+		// Wellness-world grid: gold border replaced with subtle charcoal/sand
+		.why-us & {
+			background-color: rgba(139, 101, 64, 0.25); // Gold gutter visible between cream cards
+			border-color: $color-bronze;
+			box-shadow: 0 20px 40px rgba(39, 37, 33, 0.12);
 		}
 
 		@media (max-width: 900px) {
@@ -1184,7 +1257,23 @@
 		}
 	}
 
-	// STUDIO SECTION — FIX P2: Full Wellness cream/charcoal treatment (two-world brand rhythm)
+	// SECTION DIVIDER — Dark strip separating two adjacent cream sections
+	.section-divider {
+		background-color: $color-dark-charcoal;
+		padding: 28px 0;
+		text-align: center;
+		border-top: 1.5px solid rgba(139, 101, 64, 0.25);
+		border-bottom: 1.5px solid rgba(139, 101, 64, 0.25);
+
+		.divider-mark {
+			color: $color-bronze;
+			font-size: 1.2rem;
+			opacity: 0.5;
+			letter-spacing: 12px;
+		}
+	}
+
+	// STUDIO SECTION — Wellness cream/charcoal treatment (two-world brand rhythm)
 	.studio-section {
 		padding: 120px 0;
 		// Wellness world: cream background, charcoal text — contrast with Power's dark
