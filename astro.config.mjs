@@ -10,8 +10,6 @@ export default defineConfig({
   adapter: cloudflare(),
   prefetch: true,
   integrations: [
-    sitemap({
-      filter: (page) => !page.includes('/demo-preview')
-    })
+    sitemap()
   ]
 });
