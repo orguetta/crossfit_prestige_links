@@ -9,30 +9,34 @@ const keywords = Config.about.split(" ").join(", ");
 <html lang="he" dir="rtl">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content={ Config.about }>
-        <meta name="keywords" content={ keywords }>
-		<meta name="robots" content="index, follow">
-		<meta name="theme-color" content="#272521"/>
-		<meta name="author" content={ Config.title }>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={ Config.about } />
+		<meta name="keywords" content={ keywords } />
+		<meta name="robots" content="index, follow" />
+		<meta name="theme-color" content="#272521" />
+		<meta name="author" content={ Config.title } />
 		<meta name="generator" content={ Astro.generator } />
 
-		<meta property="og:title" content={ Config.title }>
-		<meta property="og:description" content={ Config.about }>
-		<meta property="og:image" content="/favicon.ico">
-		<meta property="og:url" content={ Astro.url }>
-		<meta property="og:site_name" content={ Config.title }>
-		<meta property="og:type" content="website">
+		<!-- Favicons & Manifest -->
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/manifest.json" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
 
-		<meta name="twitter:title" content={ Config.title }>
-		<meta name="twitter:description" content={ Config.about }>
-		<meta name="twitter:image" content="/favicon.ico">
-		<meta name="twitter:card" content="summary_large_image">
+		<!-- OpenGraph / Social -->
+		<meta property="og:title" content={ Config.title } />
+		<meta property="og:description" content={ Config.about } />
+		<meta property="og:image" content="/android-chrome-512x512.png" />
+		<meta property="og:url" content={ Astro.url } />
+		<meta property="og:site_name" content={ Config.title } />
+		<meta property="og:type" content="website" />
 
-        <link rel="manifest" href="/manifest.json">
-        <link rel="apple-touch-icon" href="/favicon.ico">
-        <link rel="sitemap" href="/sitemap-index.xml">  
+		<meta name="twitter:title" content={ Config.title } />
+		<meta name="twitter:description" content={ Config.about } />
+		<meta name="twitter:image" content="/android-chrome-512x512.png" />
+		<meta name="twitter:card" content="summary_large_image" />  
         
 		<title>{ Config.title } | { Config.subtitle }</title>
 	</head>

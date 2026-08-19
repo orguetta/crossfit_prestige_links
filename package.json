@@ -19,7 +19,7 @@
   "devDependencies": {
     "sass": "^1.102.0"
   },
-  "optionalDependencies": {
-    "@bruits/satteri-darwin-arm64": "^0.10.3"
+  "overrides": {
+    "satteri": "0.10.3"
   }
 }
