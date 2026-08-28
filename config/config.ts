@@ -8,7 +8,7 @@ export const Config: LLConfig = {
     links: [
         {
             name: "דברו איתנו בווטסאפ",
-            href: "https://wa.me/972533041310",
+            href: "https://go.prestigefit.co.il/whatsapp",
             desc: "צ'אט ישיר בווטסאפ",
             link: "whatsapp",
             icon: {
@@ -18,7 +18,7 @@ export const Config: LLConfig = {
         },
         {
             name: "הצטרפות לקבוצת הודעות חשובות",
-            href: "https://chat.whatsapp.com/Lg0k4oSQ0jZ6IMF09yqlnM",
+            href: "https://go.prestigefit.co.il/wa-updates-group",
             desc: "קבוצת עדכונים שקטה",
             link: "announcements",
             icon: {
@@ -28,7 +28,7 @@ export const Config: LLConfig = {
         },
         {
             name: "הצטרפות לקבוצת הקהילה שלנו",
-            href: "https://chat.whatsapp.com/KNFQ4l7psgNLRu7jxAJMn2",
+            href: "https://go.prestigefit.co.il/wa-community",
             desc: "קבוצת הקהילה של Prestige",
             link: "community",
             icon: {
@@ -38,7 +38,7 @@ export const Config: LLConfig = {
         },
         {
             name: "לינק להורדת האפליקציה",
-            href: "http://onelink.to/jx7eps",
+            href: "https://go.prestigefit.co.il/app",
             desc: "האפליקציה הרשמית",
             link: "app",
             icon: {
@@ -48,7 +48,7 @@ export const Config: LLConfig = {
         },
         {
             name: "מה זה HYPR?",
-            href: "https://hypr-training.com/",
+            href: "https://go.prestigefit.co.il/hypr-site",
             desc: "האתר הרשמי",
             link: "about-hypr",
             icon: {
@@ -72,8 +72,8 @@ export const Config: LLConfig = {
         }
     ],
     socials: {
-        instagram: "https://www.instagram.com/crossfitprestige",
-        facebookPage: "https://www.facebook.com/profile.php?id=61590393875763",
-        facebookGroup: "https://www.facebook.com/groups/36960757233511386"
+        instagram: "https://go.prestigefit.co.il/instagram",
+        facebookPage: "https://go.prestigefit.co.il/facebookpage",
+        facebookGroup: "https://go.prestigefit.co.il/facebookgroup"
     }
 }
