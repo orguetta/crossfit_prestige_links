@@ -6,10 +6,10 @@ We take the security of this project seriously. If you believe you have found a 
 
 The following versions of this project are currently supported with security updates:
 
-| Version | Supported |
-| ------- | --------- |
+| Version  | Supported          |
+| -------- | ------------------ |
 | >= 0.0.1 | :white_check_mark: |
-| < 0.0.1  | :x: |
+| < 0.0.1  | :x:                |
 
 ## Reporting a Vulnerability
 

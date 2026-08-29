@@ -1,56 +1,54 @@
 @font-face {
-    font-family: "Font Awesome 6 Brands";
-    font-style: normal;
-    font-weight: 400;
-    font-display: inline-block;
-    src: url("/fonts/fa-brands-400.woff2") format("woff2");
+  font-family: "Font Awesome 6 Brands";
+  font-style: normal;
+  font-weight: 400;
+  font-display: inline-block;
+  src: url("/fonts/fa-brands-400.woff2") format("woff2");
 }
 
 @font-face {
-    font-family: "Font Awesome 6 Free";
-    font-style: normal;
-    font-weight: 400;
-    font-display: inline-block;
-    src: url("/fonts/fa-regular-400.woff2") format("woff2");
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 400;
+  font-display: inline-block;
+  src: url("/fonts/fa-regular-400.woff2") format("woff2");
 }
 
 @font-face {
-    font-family: "Font Awesome 6 Free";
-    font-style: normal;
-    font-weight: 900;
-    font-display: inline-block;
-    src: url("/fonts/fa-solid-900.woff2") format("woff2");
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: inline-block;
+  src: url("/fonts/fa-solid-900.woff2") format("woff2");
 }
 
 /* Anton English Font */
 @font-face {
-    font-family: "Anton";
-    src: url("/fonts/Anton-Regular.woff2") format("woff2");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Anton";
+  src: url("/fonts/Anton-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
-
-
 
 /* Tel Aviv Brutalist */
 @font-face {
-    font-family: "Tel Aviv Brutalist";
-    src: url("/fonts/telaviv-brutalistregular.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Tel Aviv Brutalist";
+  src: url("/fonts/telaviv-brutalistregular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Tel Aviv Brutalist";
-    src: url("/fonts/telaviv-brutalistbold.woff2") format("woff2");
-    font-weight: bold;
-    font-style: normal;
+  font-family: "Tel Aviv Brutalist";
+  src: url("/fonts/telaviv-brutalistbold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Tel Aviv Brutalist";
-    src: url("/fonts/telaviv-brutalistlight.woff2") format("woff2");
-    font-weight: 300;
-    font-style: normal;
+  font-family: "Tel Aviv Brutalist";
+  src: url("/fonts/telaviv-brutalistlight.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
 }
