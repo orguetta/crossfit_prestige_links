@@ -1,0 +1,524 @@
+---
+import { Config } from "../../config/config";
+import '../../config/styles.scss';
+
+const title = "לו״ז חגים 2026 ספטמבר-אוקטובר | CrossFit Prestige";
+const description = "לוח זמנים 2026 ושעות פעילות לחגי תשרי בספטמבר ואוקטובר בקרוספיט פריסטיג׳";
+
+interface CalendarDay {
+    dayName: string;
+    dateNum: string;
+    status: string;
+    text: string;
+    label?: string;
+    monthMarker?: string;
+}
+
+interface CalendarWeek {
+    weekName: string;
+    isTransitionWeek?: boolean;
+    days: CalendarDay[];
+}
+
+interface HolidayEvent {
+    date: string;
+    day: string;
+    title: string;
+    status: string;
+    statusText: string;
+    badgeColor: string;
+    icon: string;
+}
+
+// Holiday Events Data
+const holidayEvents: HolidayEvent[] = [
+    {
+        date: "11.9",
+        day: "יום שישי",
+        title: "ערב ראש השנה",
+        status: "morning_only",
+        statusText: "אימוני בוקר בלבד",
+        badgeColor: "#d97706",
+        icon: "🌅"
+    },
+    {
+        date: "12-13.9",
+        day: "שבת - ראשון",
+        title: "ראש השנה",
+        status: "closed",
+        statusText: "הבוקס סגור",
+        badgeColor: "#ef4444",
+        icon: "⛔"
+    },
+    {
+        date: "20.9",
+        day: "יום ראשון",
+        title: "ערב יום כיפור",
+        status: "morning_only",
+        statusText: "אימוני בוקר בלבד",
+        badgeColor: "#d97706",
+        icon: "🌅"
+    },
+    {
+        date: "21.9",
+        day: "יום שני",
+        title: "יום כיפור",
+        status: "closed",
+        statusText: "הבוקס סגור",
+        badgeColor: "#ef4444",
+        icon: "⛔"
+    },
+    {
+        date: "25.9",
+        day: "יום שישי",
+        title: "ערב סוכות",
+        status: "morning_only",
+        statusText: "אימוני בוקר בלבד",
+        badgeColor: "#d97706",
+        icon: "🌅"
+    },
+    {
+        date: "26.9",
+        day: "יום שבת",
+        title: "סוכות (חג ראשון)",
+        status: "closed",
+        statusText: "הבוקס סגור",
+        badgeColor: "#ef4444",
+        icon: "⛔"
+    },
+    {
+        date: "27.9 - 1.10",
+        day: "ראשון - חמישי",
+        title: "חול מועד סוכות",
+        status: "regular",
+        statusText: "אימונים כרגיל",
+        badgeColor: "#10b981",
+        icon: "🏋️‍♂️"
+    },
+    {
+        date: "2.10",
+        day: "יום שישי",
+        title: "שמחת תורה (סוכות ב׳)",
+        status: "morning_only",
+        statusText: "אימוני בוקר בלבד",
+        badgeColor: "#d97706",
+        icon: "🌅"
+    },
+    {
+        date: "3.10",
+        day: "יום שבת",
+        title: "שמחת תורה (חג)",
+        status: "closed",
+        statusText: "הבוקס סגור",
+        badgeColor: "#ef4444",
+        icon: "⛔"
+    }
+];
+
+// Unified Continuous Calendar Grid Data (4 Weeks spanning Sept 6 to Oct 3)
+const calendarWeeks: CalendarWeek[] = [
+    {
+        weekName: "שבוע ראש השנה (6.9 - 12.9)",
+        days: [
+            { dayName: "א׳", dateNum: "6.9", status: "regular", text: "כרגיל" },
+            { dayName: "ב׳", dateNum: "7.9", status: "regular", text: "כרגיל" },
+            { dayName: "ג׳", dateNum: "8.9", status: "regular", text: "כרגיל" },
+            { dayName: "ד׳", dateNum: "9.9", status: "regular", text: "כרגיל" },
+            { dayName: "ה׳", dateNum: "10.9", status: "regular", text: "כרגיל" },
+            { dayName: "ו׳", dateNum: "11.9", status: "morning", label: "ערב ראש השנה", text: "אימוני בוקר בלבד" },
+            { dayName: "ש׳", dateNum: "12.9", status: "closed", label: "ראש השנה", text: "הבוקס סגור" },
+        ]
+    },
+    {
+        weekName: "שבוע צום גדליה ובין הכסאים (13.9 - 19.9)",
+        days: [
+            { dayName: "א׳", dateNum: "13.9", status: "closed", label: "ראש השנה ב׳", text: "הבוקס סגור" },
+            { dayName: "ב׳", dateNum: "14.9", status: "regular", text: "כרגיל" },
+            { dayName: "ג׳", dateNum: "15.9", status: "regular", text: "כרגיל" },
+            { dayName: "ד׳", dateNum: "16.9", status: "regular", text: "כרגיל" },
+            { dayName: "ה׳", dateNum: "17.9", status: "regular", text: "כרגיל" },
+            { dayName: "ו׳", dateNum: "18.9", status: "regular", text: "כרגיל" },
+            { dayName: "ש׳", dateNum: "19.9", status: "regular", text: "סגור כרגיל" },
+        ]
+    },
+    {
+        weekName: "שבוע יום כיפור וערב סוכות (20.9 - 26.9)",
+        days: [
+            { dayName: "א׳", dateNum: "20.9", status: "morning", label: "ערב כיפור", text: "אימוני בוקר בלבד" },
+            { dayName: "ב׳", dateNum: "21.9", status: "closed", label: "יום כיפור", text: "הבוקס סגור" },
+            { dayName: "ג׳", dateNum: "22.9", status: "regular", text: "כרגיל" },
+            { dayName: "ד׳", dateNum: "23.9", status: "regular", text: "כרגיל" },
+            { dayName: "ה׳", dateNum: "24.9", status: "regular", text: "כרגיל" },
+            { dayName: "ו׳", dateNum: "25.9", status: "morning", label: "ערב סוכות", text: "אימוני בוקר בלבד" },
+            { dayName: "ש׳", dateNum: "26.9", status: "closed", label: "סוכות א׳", text: "הבוקס סגור" },
+        ]
+    },
+    {
+        weekName: "שבוע מעבר: חול המועד & שמחת תורה (27.9 - 3.10)",
+        isTransitionWeek: true,
+        days: [
+            { dayName: "א׳", dateNum: "27.9", status: "regular_holiday", label: "חול המועד", text: "אימונים כרגיל" },
+            { dayName: "ב׳", dateNum: "28.9", status: "regular_holiday", label: "חול המועד", text: "אימונים כרגיל" },
+            { dayName: "ג׳", dateNum: "29.9", status: "regular_holiday", label: "חול המועד", text: "אימונים כרגיל" },
+            { dayName: "ד׳", dateNum: "30.9", status: "regular_holiday", label: "חול המועד", text: "אימונים כרגיל" },
+            { dayName: "ה׳", dateNum: "1.10", status: "regular_holiday", label: "חול המועד", text: "אימונים כרגיל", monthMarker: "אוקטובר" },
+            { dayName: "ו׳", dateNum: "2.10", status: "morning", label: "שמחת תורה", text: "אימוני בוקר בלבד", monthMarker: "אוקטובר" },
+            { dayName: "ש׳", dateNum: "3.10", status: "closed", label: "שמחת תורה", text: "הבוקס סגור", monthMarker: "אוקטובר" },
+        ]
+    }
+];
+---
+
+<html lang="he" dir="rtl">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/manifest.json" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content={ description }>
+		<meta name="robots" content="index, follow">
+		<meta name="theme-color" content="#272521"/>
+		<meta name="author" content={ Config.title }>
+		<meta name="generator" content={ Astro.generator } />
+
+		<meta property="og:title" content={ title }>
+		<meta property="og:description" content={ description }>
+		<meta property="og:image" content="/android-chrome-512x512.png">
+		<meta property="og:url" content={ Astro.url }>
+		<meta property="og:site_name" content={ Config.title }>
+		<meta property="og:type" content="website">
+
+		<title>{ title }</title>
+
+		<!-- html2canvas library for screenshot generation -->
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqoxaitwWaCnANpqqLnR4z8f" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	</head>
+	<body>
+		<header>
+			<div class="logo-container">
+				<img 
+					id="logo-image" 
+					src="/logo.png" 
+					alt="CrossFit Prestige" 
+				/>
+				<script is:inline>
+					(function() {
+						const img = document.getElementById('logo-image');
+						if (img) {
+							function handleError() {
+								if (img.src.indexOf('/logo.png') !== -1) {
+									img.src = '/logo.svg';
+								} else {
+									img.style.display = 'none';
+									const fallback = document.getElementById('logo-fallback');
+									if (fallback) {
+										fallback.style.display = 'flex';
+									}
+								}
+							}
+							img.addEventListener('error', handleError);
+							if (img.complete && img.naturalWidth === 0) {
+								handleError();
+							}
+						}
+					})();
+				</script>
+				<div id="logo-fallback" class="avatar-fallback" style="display: none;">
+					CP
+				</div>
+			</div>
+			<h1>לו״ז חגים 2026</h1>
+			<p class="subtitle">ספטמבר - אוקטובר | CROSSFIT PRESTIGE</p>
+		</header>
+
+		<main>
+			<div class="top-navigation">
+				<a href="/" class="back-link">
+					<i style="font-family: 'Font Awesome 6 Free'; font-weight: 900; margin-left: 8px;">&#xf061;</i>
+					<span>חזרה לעמוד הראשי</span>
+				</a>
+			</div>
+
+			<!-- Legend -->
+			<div class="legend-bar">
+				<div class="legend-item legend-morning">
+					<span class="legend-dot"></span>
+					<span>אימוני בוקר בלבד</span>
+				</div>
+				<div class="legend-item legend-closed">
+					<span class="legend-dot"></span>
+					<span>הבוקס סגור</span>
+				</div>
+				<div class="legend-item legend-regular">
+					<span class="legend-dot"></span>
+					<span>אימונים כרגיל</span>
+				</div>
+			</div>
+
+			<!-- Unified flat calendar grid — all 28 days, no week grouping -->
+			<div class="calendar-grid">
+				{calendarWeeks.flatMap(w => w.days).map(d => (
+					<div class={`day-cell cell-${d.status} ${d.monthMarker ? 'new-month' : ''}`}>
+						<div class="day-header">
+							<span class="day-name">{d.dayName}</span>
+							<span class="date-num">{d.dateNum}</span>
+						</div>
+						{d.monthMarker && <span class="month-label">{d.monthMarker}</span>}
+						{d.label && <div class="event-label">{d.label}</div>}
+						<div class="status-text">{d.text}</div>
+					</div>
+				))}
+			</div>
+
+			<div class="bottom-navigation">
+				<a href="/" class="back-link">
+					<i style="font-family: 'Font Awesome 6 Free'; font-weight: 900; margin-left: 8px;">&#xf061;</i>
+					<span>חזרה לעמוד הראשי</span>
+				</a>
+			</div>
+		</main>
+
+		<footer>
+			<h5>Made with ❤️ by <a href="https://or.guetta.tech">Or Guetta</a></h5>
+		</footer>
+
+		<style lang="scss">
+			$color-dark-charcoal: #272521;
+			$color-dark-deep: #161513;
+			$color-bronze: #8B6540;
+			$color-taupe-beige: #DBCEBE;
+			$color-cream-white: #EDE4D9;
+			$color-pure-white: #ffffff;
+
+			:global(body) {
+				max-width: 840px !important; // Optimized width for calendar reading
+			}
+
+			.top-navigation {
+				width: 100%;
+				margin-bottom: 28px;
+				display: flex;
+				justify-content: flex-start;
+			}
+
+			.bottom-navigation {
+				width: 100%;
+				margin-top: 48px;
+				margin-bottom: 24px;
+				display: flex;
+				justify-content: flex-start;
+			}
+
+			.back-link {
+				display: inline-flex;
+				align-items: center;
+				text-decoration: none;
+				background-color: rgba(39, 37, 33, 0.4);
+				border: 1.5px solid $color-bronze;
+				border-radius: 20px;
+				padding: 10px 20px;
+				color: $color-cream-white;
+				font-family: 'Tel Aviv Brutalist', sans-serif;
+				font-size: 0.95rem;
+				font-weight: bold;
+				transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+				cursor: pointer;
+
+				&:hover {
+					background-color: $color-bronze;
+					border-color: $color-bronze;
+					color: $color-dark-charcoal;
+					transform: translateY(-2px);
+					box-shadow: 0 4px 12px rgba(139, 101, 64, 0.25);
+				}
+			}
+
+			// Info Banner
+			.info-banner {
+				width: 100%;
+				display: flex;
+				align-items: center;
+				gap: 16px;
+				background: rgba(139, 101, 64, 0.15);
+				border: 1px solid rgba(139, 101, 64, 0.4);
+				border-radius: 16px;
+				padding: 16px 20px;
+				margin-bottom: 24px;
+				box-sizing: border-box;
+
+				.info-icon {
+					font-size: 1.6rem;
+				}
+
+				.info-text {
+					font-family: 'Tel Aviv Brutalist', sans-serif;
+					font-size: 0.95rem;
+					color: $color-cream-white;
+					line-height: 1.5;
+				}
+			}
+
+			// View Selector Tabs (keeping for unused-CSS safety — hidden by display:none)
+			.view-selector, .action-bar, .content-section, .social-graphic-card,
+			.events-list, .calendar-container { display: none !important; }
+
+			// Legend Bar
+			.legend-bar {
+				display: flex;
+				justify-content: center;
+				gap: 20px;
+				margin-bottom: 24px;
+				flex-wrap: wrap;
+
+				.legend-item {
+					display: flex;
+					align-items: center;
+					gap: 8px;
+					font-family: 'Tel Aviv Brutalist', sans-serif;
+					font-size: 0.88rem;
+					color: $color-cream-white;
+
+					.legend-dot {
+						width: 12px;
+						height: 12px;
+						border-radius: 50%;
+					}
+
+					&.legend-morning .legend-dot { background-color: #d97706; }
+					&.legend-closed .legend-dot { background-color: #ef4444; }
+					&.legend-regular .legend-dot { background-color: #10b981; }
+				}
+			}
+
+			// Unified flat calendar grid — 7 columns, all 28 days
+			.calendar-grid {
+				display: grid;
+				grid-template-columns: repeat(7, 1fr);
+				gap: 8px;
+				width: 100%;
+
+				.day-cell {
+					background: rgba(39, 37, 33, 0.4);
+					border: 1px solid rgba(139, 101, 64, 0.2);
+					border-radius: 12px;
+					padding: 10px 8px;
+					min-height: 90px;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
+					box-sizing: border-box;
+
+					&.new-month {
+						border-color: $color-bronze;
+						border-width: 2px;
+					}
+
+					.day-header {
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+						font-family: 'JetBrains Mono', sans-serif;
+
+						.day-name {
+							font-weight: bold;
+							color: $color-taupe-beige;
+							font-size: 0.85rem;
+						}
+
+						.date-num {
+							font-size: 0.78rem;
+							color: $color-cream-white;
+						}
+					}
+
+					.month-label {
+						font-size: 0.65rem;
+						color: $color-bronze;
+						font-weight: bold;
+						text-align: center;
+					}
+
+					.event-label {
+						font-family: 'Tel Aviv Brutalist', sans-serif;
+						font-size: 0.73rem;
+						font-weight: bold;
+						color: $color-cream-white;
+						margin-top: 4px;
+						line-height: 1.2;
+					}
+
+					.status-text {
+						font-family: 'Tel Aviv Brutalist', sans-serif;
+						font-size: 0.68rem;
+						margin-top: auto;
+					}
+
+					&.cell-morning {
+						border-color: #d97706;
+						background: rgba(217, 119, 6, 0.15);
+						.status-text { color: #f59e0b; font-weight: bold; }
+					}
+
+					&.cell-closed {
+						border-color: #ef4444;
+						background: rgba(239, 68, 68, 0.15);
+						.status-text { color: #f87171; font-weight: bold; }
+					}
+
+					&.cell-regular .status-text,
+					&.cell-regular_holiday .status-text {
+						color: #34d399;
+					}
+				}
+			}
+
+			// Responsive
+			@media (max-width: 680px) {
+				.calendar-grid {
+					gap: 5px;
+
+					.day-cell {
+						padding: 7px 5px;
+						min-height: 75px;
+						border-radius: 9px;
+
+						.day-header {
+							flex-direction: column;
+							align-items: flex-start;
+							gap: 1px;
+
+							.day-name { font-size: 0.75rem; }
+							.date-num { font-size: 0.65rem; }
+						}
+
+						.event-label { font-size: 0.62rem; }
+						.status-text { font-size: 0.6rem; }
+						.month-label { font-size: 0.56rem; }
+					}
+				}
+			}
+
+			@media (max-width: 420px) {
+				.calendar-grid {
+					gap: 3px;
+
+					.day-cell {
+						padding: 5px 3px;
+						min-height: 65px;
+
+						.day-header {
+							.day-name { font-size: 0.65rem; }
+							.date-num { font-size: 0.56rem; }
+						}
+
+						.event-label { font-size: 0.54rem; }
+						.status-text { font-size: 0.5rem; }
+					}
+				}
+			}
+		</style>
+	</body>
+</html>
