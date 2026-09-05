@@ -1,0 +1,340 @@
+---
+import { Config } from "../../config/config";
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  headings: { slug: string; text: string }[];
+  navigationLabel?: string;
+  robots?: string;
+}
+const {
+  title,
+  description,
+  path,
+  headings,
+  navigationLabel = "במדריך הזה",
+  robots = "index, follow",
+} = Astro.props;
+const canonical = new URL(path, Astro.site);
+---
+
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <meta name="theme-color" content="#272521" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="/fonts.css" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="he_IL" />
+    <meta property="og:site_name" content={Config.title} />
+    <meta property="og:url" content={canonical} />
+    <meta
+      property="og:image"
+      content={new URL("/android-chrome-512x512.png", Astro.site)}
+    />
+    <meta name="twitter:card" content="summary" />
+  </head>
+  <body>
+    <a class="skip-link" href="#document">דילוג לתוכן</a>
+    <header class="brand-header">
+      <div class="brand-bar">
+        <a class="brand" href="/" aria-label="CrossFit Prestige — לעמוד הבית">
+          <img
+            src="/logo.png"
+            alt="CrossFit Prestige by HYPR"
+            width="96"
+            height="96"
+          />
+          <span dir="ltr">POWER · WELLNESS · COMMUNITY</span>
+        </a>
+        <a class="back" href="/"
+          >חזרה לעמוד הראשי <span aria-hidden="true">←</span></a
+        >
+      </div>
+    </header>
+    <main class="layout">
+      <aside>
+        <nav aria-label={navigationLabel} class="contents">
+          <details open>
+            <summary>{navigationLabel}</summary>
+            <ul>
+              {
+                headings.map(({ slug, text }) => (
+                  <li>
+                    <a href={slug.startsWith("/") ? slug : `#${slug}`}>
+                      {text}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </details>
+          <a class="contact" href="https://go.prestigefit.co.il/whatsapp"
+            >צריכים עזרה? כתבו לנו בוואטסאפ</a
+          >
+        </nav>
+      </aside>
+      <article id="document" tabindex="-1">
+        <slot />
+      </article>
+    </main>
+    <footer>
+      <a href="/">CrossFit Prestige</a>
+      <a href="/terms">תקנון מצטרפים</a>
+      <span dir="ltr"
+        >Made with ♥ by <a href="https://or.guetta.tech">Or Guetta</a></span
+      >
+    </footer>
+  </body>
+</html>
+
+<script>
+  const contents =
+    document.querySelector<HTMLDetailsElement>(".contents details");
+  if (contents && window.matchMedia("(max-width: 800px)").matches) {
+    contents.open = false;
+  }
+</script>
+
+<style>
+  :global(html) {
+    --charcoal: #272521;
+    --gold: #8b6540;
+    --sand: #dbcebe;
+    --cream: #ede4d9;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: "Tel Aviv Brutalist", sans-serif;
+    scroll-behavior: smooth;
+  }
+  :global(body) {
+    margin: 0;
+  }
+  :global(*) {
+    box-sizing: border-box;
+  }
+  :global(a) {
+    color: inherit;
+    text-underline-offset: 0.22em;
+  }
+  :global(a:hover) {
+    text-decoration-thickness: 2px;
+  }
+  :global(:focus-visible) {
+    outline: 3px solid var(--gold);
+    outline-offset: 5px;
+  }
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    right: 20px;
+    padding: 16px;
+    background: var(--cream);
+    z-index: 2;
+  }
+  .skip-link:focus {
+    top: 16px;
+  }
+  .brand-header {
+    background: var(--charcoal);
+    color: var(--cream);
+    border-bottom: 4px solid var(--gold);
+  }
+  .brand-bar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    text-decoration: none;
+  }
+  .brand img {
+    display: block;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+  .brand span {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+  }
+  .back {
+    font-size: 15px;
+    padding-block: 12px;
+  }
+  .layout {
+    max-width: 1200px;
+    margin: auto;
+    padding: 64px 32px 80px;
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 64px;
+    align-items: start;
+  }
+  aside {
+    align-self: stretch;
+  }
+  .contents {
+    position: sticky;
+    top: 32px;
+    max-height: calc(100dvh - 64px);
+    overflow-y: auto;
+  }
+  .contents summary {
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--gold);
+  }
+  .contents ul {
+    list-style: none;
+    padding: 12px 0;
+    margin: 0;
+  }
+  .contents li a {
+    display: block;
+    padding: 8px 0;
+    font-size: 15px;
+    line-height: 1.5;
+    text-decoration: none;
+  }
+  .contents li a:hover {
+    text-decoration: underline;
+  }
+  .contact {
+    display: block;
+    padding: 16px;
+    margin-top: 12px;
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  article {
+    min-width: 0;
+    font-size: 18px;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+  }
+  article :global(h1) {
+    font-size: clamp(40px, 5vw, 68px);
+    line-height: 1.15;
+    margin: 0 0 32px;
+    max-width: 12ch;
+    font-weight: 700;
+  }
+  article :global(h2) {
+    font-size: clamp(24px, 3vw, 32px);
+    line-height: 1.35;
+    margin: 48px 0 20px;
+    padding-top: 24px;
+    border-top: 1px solid var(--gold);
+    scroll-margin-top: 24px;
+  }
+  article :global(p) {
+    margin: 0 0 20px;
+  }
+  article :global(ul),
+  article :global(ol) {
+    padding-inline-start: 24px;
+    margin: 0 0 24px;
+  }
+  article :global(li) {
+    padding-inline-start: 6px;
+    margin-bottom: 10px;
+  }
+  article :global(li::marker) {
+    color: var(--gold);
+    font-weight: bold;
+  }
+  article :global(a) {
+    font-weight: 700;
+    text-decoration-color: var(--gold);
+  }
+  article :global(code) {
+    font-family: inherit;
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+  article :global(hr) {
+    border: 0;
+    border-top: 1px solid var(--gold);
+    margin: 40px 0 24px;
+  }
+  footer {
+    background: var(--charcoal);
+    color: var(--sand);
+    padding: 28px 32px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    font-size: 14px;
+  }
+  @media (max-width: 800px) {
+    .brand-bar {
+      padding: 20px;
+    }
+    .brand img {
+      width: 72px;
+      height: 72px;
+    }
+    .brand span {
+      display: none;
+    }
+    .layout {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 32px;
+      padding: 32px 20px 48px;
+    }
+    .contents {
+      position: static;
+      max-height: none;
+    }
+    .contents ul {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 16px;
+    }
+    article {
+      font-size: 17px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :global(html) {
+      scroll-behavior: auto;
+    }
+  }
+  @media print {
+    .brand-header,
+    aside,
+    footer,
+    .skip-link {
+      display: none;
+    }
+    .layout {
+      display: block;
+      padding: 0;
+    }
+    article :global(h2) {
+      break-after: avoid;
+    }
+  }
+</style>

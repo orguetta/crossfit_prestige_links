@@ -1,0 +1,14 @@
+---
+import { Content, getHeadings } from "../data/new-member-guide.md";
+import DocumentLayout from "../layouts/DocumentLayout.astro";
+const headings = getHeadings().filter((heading) => heading.depth === 2);
+---
+
+<DocumentLayout
+  title="מדריך למתאמן החדש | CrossFit Prestige"
+  description="כל מה שצריך להתחלה ב־CrossFit Prestige: הרשמה לאימונים, קבלת פנים, כללי ביטול, קהילה והגעה למועדון."
+  path="/new-member-guide"
+  headings={headings}
+>
+  <Content />
+</DocumentLayout>

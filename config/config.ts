@@ -7,6 +7,12 @@ export const Config: LLConfig = {
   image: "/logo.svg", // This will fallback to logo.png or text avatar if logo is missing in public
   links: [
     {
+      name: "מדריך למתאמן החדש",
+      href: "/new-member-guide",
+      desc: "כל מה שצריך לדעת לקראת האימונים הראשונים",
+      link: "new-member-guide",
+    },
+    {
       name: "לו״ז חגים מעודכן (ספטמבר - אוקטובר)",
       href: "/holidays",
       desc: "שעות פעילות וימי חג בבוקס",
