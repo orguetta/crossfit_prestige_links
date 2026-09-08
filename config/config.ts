@@ -23,6 +23,36 @@ export const Config: LLConfig = {
       },
     },
     {
+      name: "ניווט אלינו ב-Waze",
+      href: "https://go.prestigefit.co.il/waze",
+      desc: "הוראות הגעה לקרוספיט פרסטיג׳ ב-Waze",
+      link: "waze",
+      icon: {
+        code: "f83f",
+        bold: false,
+      },
+    },
+    {
+      name: "ניווט אלינו ב-Google Maps",
+      href: "https://go.prestigefit.co.il/gmap",
+      desc: "פתיחת פרופיל העסק והמיקום ב-Google Maps",
+      link: "google-maps",
+      icon: {
+        code: "f3c5",
+        bold: true,
+      },
+    },
+    {
+      name: "דרגו אותנו בגוגל",
+      href: "https://go.prestigefit.co.il/gmap-review",
+      desc: "נשמח שתשתפו את החוויה שלכם",
+      link: "google-review",
+      icon: {
+        code: "f005",
+        bold: true,
+      },
+    },
+    {
       name: "דברו איתנו בווטסאפ",
       href: "https://go.prestigefit.co.il/whatsapp",
       desc: "צ'אט ישיר בווטסאפ",
