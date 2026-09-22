@@ -7,6 +7,16 @@ export const Config: LLConfig = {
   image: "/logo.svg", // This will fallback to logo.png or text avatar if logo is missing in public
   links: [
     {
+      name: "לינק להורדת האפליקציה",
+      href: "https://go.prestigefit.co.il/app",
+      desc: "האפליקציה הרשמית",
+      link: "app",
+      icon: {
+        code: "f3cd",
+        bold: true,
+      },
+    },
+    {
       name: "מדריך למתאמן החדש",
       href: "/new-member-guide",
       desc: "כל מה שצריך לדעת לקראת האימונים הראשונים",
@@ -79,16 +89,6 @@ export const Config: LLConfig = {
       link: "community",
       icon: {
         code: "f0c0",
-        bold: true,
-      },
-    },
-    {
-      name: "לינק להורדת האפליקציה",
-      href: "https://go.prestigefit.co.il/app",
-      desc: "האפליקציה הרשמית",
-      link: "app",
-      icon: {
-        code: "f3cd",
         bold: true,
       },
     },
