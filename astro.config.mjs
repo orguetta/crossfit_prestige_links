@@ -9,5 +9,10 @@ export default defineConfig({
   output: "server",
   adapter: cloudflare(),
   prefetch: true,
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) =>
+        page !== "https://link.prestigefit.co.il/coaches/handbook/",
+    }),
+  ],
 });
